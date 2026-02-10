@@ -1,0 +1,21 @@
+{
+  "workouts": [
+    {
+      "id": "A",
+      "name": "Allenamento A",
+      "exercises": []
+    },
+    {
+      "id": "B",
+      "name": "Allenamento B",
+      "exercises": []
+    },
+    {
+      "id": "C",
+      "name": "Allenamento C",
+      "exercises": []
+    }
+  ],
+  "fixed_exercises": [],
+  "exercises": {}
+}

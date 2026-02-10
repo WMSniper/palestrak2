@@ -1,0 +1,474 @@
+:root {
+    --bg-color: #000000;
+    --primary-color: #111113;
+    --secondary-color: #1c1c1e;
+    --surface-color: rgba(28, 28, 30, 0.72);
+    --surface-color-strong: rgba(44, 44, 46, 0.92);
+    --accent-color: #66f0d2;
+    --accent-color-2: #b7a6ff;
+    --accent-rgb: 102, 240, 210;
+    --accent2-rgb: 183, 166, 255;
+    --accent3-color: #6cc8ff;
+    --accent3-rgb: 108, 200, 255;
+    --text-color: #ffffff;
+    --text-secondary-color: rgba(235, 235, 245, 0.6);
+    --destructive-color: #ff453a;
+    --shadow-elev-1: 0 10px 30px rgba(0,0,0,0.45);
+    --shadow-elev-2: 0 18px 50px rgba(0,0,0,0.55);
+    --border-color: rgba(255,255,255,0.08);
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-inout: cubic-bezier(0.45, 0, 0.55, 1);
+    --tap-scale: 0.985;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(var(--accent-rgb), 0.14) 0%, rgba(0,0,0,0) 55%),
+        radial-gradient(900px 600px at 95% 10%, rgba(var(--accent2-rgb), 0.14) 0%, rgba(0,0,0,0) 55%),
+        linear-gradient(180deg, #000000 0%, #050506 60%, #000000 100%);
+    color: var(--text-color);
+    margin: 0;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0.7rem;
+    min-height: 100vh;
+}
+
+header h1 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.9rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.18rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+button, input[type="submit"] {
+    display: block;
+    width: 100%;
+    --btn-a: var(--accent-rgb);
+    --btn-b: var(--accent3-rgb);
+    --btn-c: var(--accent-rgb);
+    --btn-border: var(--accent-rgb);
+    background:
+        radial-gradient(140% 120% at 20% 0%, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 55%),
+        linear-gradient(180deg, rgba(var(--btn-a), 0.98) 0%, rgba(var(--btn-b), 0.78) 55%, rgba(var(--btn-c), 0.70) 100%);
+    color: var(--text-color);
+    border: none;
+    padding: 0.78rem;
+    font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-bottom: 0.55rem;
+    border: 1px solid rgba(var(--btn-border), 0.28);
+    box-shadow:
+        0 14px 32px rgba(0,0,0,0.55),
+        0 10px 26px rgba(var(--btn-a), 0.14),
+        0 8px 22px rgba(var(--btn-b), 0.12);
+    transform: translateZ(0);
+    transition:
+        transform 0.12s var(--ease-out),
+        filter 0.2s var(--ease-inout),
+        background-color 0.2s var(--ease-inout);
+}
+
+button:not(.secondary):nth-of-type(3n + 1),
+input[type="submit"]:nth-of-type(3n + 1) {
+    --btn-a: var(--accent-rgb);
+    --btn-b: var(--accent3-rgb);
+    --btn-c: var(--accent-rgb);
+    --btn-border: var(--accent-rgb);
+}
+
+button:not(.secondary):nth-of-type(3n + 2),
+input[type="submit"]:nth-of-type(3n + 2) {
+    --btn-a: var(--accent3-rgb);
+    --btn-b: var(--accent2-rgb);
+    --btn-c: var(--accent3-rgb);
+    --btn-border: var(--accent3-rgb);
+}
+
+button:not(.secondary):nth-of-type(3n + 3),
+input[type="submit"]:nth-of-type(3n + 3) {
+    --btn-a: var(--accent2-rgb);
+    --btn-b: var(--accent-rgb);
+    --btn-c: var(--accent2-rgb);
+    --btn-border: var(--accent2-rgb);
+}
+
+button:active {
+    transform: scale(var(--tap-scale));
+    filter: brightness(0.97);
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid rgba(var(--accent-rgb), 0.65);
+    outline-offset: 2px;
+}
+
+button.secondary {
+    background:
+        radial-gradient(140% 120% at 20% 0%, rgba(var(--accent2-rgb), 0.10) 0%, rgba(0,0,0,0) 60%),
+        linear-gradient(180deg, rgba(44, 44, 46, 0.96) 0%, rgba(28, 28, 30, 0.96) 100%);
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.45),
+        0 8px 20px rgba(var(--accent2-rgb), 0.10);
+    border: 1px solid rgba(var(--accent2-rgb), 0.18);
+}
+
+.card {
+    background: linear-gradient(180deg, var(--surface-color-strong) 0%, var(--surface-color) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.78rem;
+    margin-bottom: 0.6rem;
+    box-shadow: var(--shadow-elev-1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transform: translateZ(0);
+}
+
+.exercise-view .card {
+    padding: 1.05rem;
+}
+
+.exercise-image {
+    width: 100%;
+    max-height: 210px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border-color);
+}
+
+.exercise-list-custom {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exercise-list-custom li {
+    background: linear-gradient(180deg, rgba(28, 28, 30, 0.95) 0%, rgba(17, 17, 19, 0.88) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.78rem;
+    margin-bottom: 0.65rem;
+    box-shadow: var(--shadow-elev-1);
+    transition: transform 0.18s var(--ease-out), border-color 0.2s var(--ease-inout);
+}
+
+.exercise-list-custom li:active {
+    transform: scale(0.995);
+}
+
+.exercise-list-custom label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+ .exercise-thumb {
+     width: 38px;
+     height: 38px;
+     border-radius: 10px;
+     object-fit: cover;
+     background: rgba(255,255,255,0.06);
+     border: 1px solid var(--border-color);
+ }
+
+.exercise-list-custom input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+}
+
+.exercise-selection-details {
+    margin-top: 0.55rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr 0.9fr;
+    gap: 0.55rem;
+}
+
+.exercise-selection-details input {
+    width: 100%;
+    padding: 0.72rem;
+    font-size: 0.98rem;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-color);
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 0;
+    border: 1px solid var(--border-color);
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.exercise-header h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.exercise-header span {
+    color: var(--text-secondary-color);
+    font-weight: 500;
+}
+
+.exercise-details p {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+    background: rgba(255,255,255,0.06);
+    padding: 0.7rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.exercise-input label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary-color);
+    font-weight: 500;
+}
+
+.exercise-input input,
+.exercise-input textarea {
+    width: 100%;
+    padding: 0.74rem;
+    font-size: 0.98rem;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-color);
+    border: none;
+    border-radius: 14px;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s var(--ease-inout), transform 0.18s var(--ease-out);
+}
+
+.exercise-input input:focus,
+.exercise-input textarea:focus {
+    border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.history {
+    margin-top: 1.25rem;
+}
+
+.history h4 {
+    color: var(--text-secondary-color);
+    font-weight: 600;
+}
+
+.timer-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 64vh;
+}
+
+.timer-view .timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+}
+
+.timer-view .skip-timer {
+    margin-top: 1rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border-color);
+    width: auto;
+    padding: 0.7rem 1.5rem;
+}
+
+/* Add Exercise Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.62);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 0;
+}
+
+.modal[style*="display: block"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 12px;
+    animation: overlayIn 0.22s var(--ease-out) both;
+}
+
+.modal-content {
+    background: linear-gradient(180deg, rgba(28, 28, 30, 0.94) 0%, rgba(17, 17, 19, 0.88) 100%);
+    border: 1px solid var(--border-color);
+    margin: 0 auto;
+    padding: 14px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-elev-2);
+    animation: sheetIn 0.26s var(--ease-out) both;
+}
+
+.close-button {
+    color: var(--text-secondary-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes overlayIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes sheetIn {
+    from { opacity: 0; transform: translateY(18px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Floating Action Button for Add Exercise */
+.fab {
+    position: fixed;
+    bottom: calc(2rem + env(safe-area-inset-bottom));
+    right: calc(2rem + env(safe-area-inset-right));
+    width: 48px;
+    height: 48px;
+    background:
+        radial-gradient(140% 120% at 25% 15%, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0) 58%),
+        linear-gradient(180deg, rgba(var(--accent-rgb), 0.98) 0%, rgba(var(--accent3-rgb), 0.78) 65%, rgba(var(--accent-rgb), 0.70) 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    color: white;
+    border: 1px solid rgba(var(--accent-rgb), 0.28);
+    box-shadow:
+        0 18px 44px rgba(0,0,0,0.62),
+        0 12px 32px rgba(var(--accent-rgb), 0.16),
+        0 10px 28px rgba(var(--accent3-rgb), 0.12);
+    cursor: pointer;
+    transition: transform 0.18s var(--ease-out), filter 0.2s var(--ease-inout);
+}
+
+.fab:active {
+    transform: scale(0.95);
+    filter: brightness(0.97);
+}
+
+ .workout-fab {
+     position: fixed;
+     bottom: calc(2rem + env(safe-area-inset-bottom));
+     left: calc(2rem + env(safe-area-inset-left));
+     width: 48px;
+     height: 48px;
+     background:
+         radial-gradient(140% 120% at 25% 15%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 58%),
+         linear-gradient(180deg, rgba(var(--accent2-rgb), 0.46) 0%, rgba(var(--accent3-rgb), 0.28) 55%, rgba(28, 28, 30, 0.94) 100%);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.4rem;
+     color: var(--text-color);
+     border: 1px solid rgba(var(--accent2-rgb), 0.18);
+     box-shadow: var(--shadow-elev-2);
+     cursor: pointer;
+     z-index: 120;
+     transition: transform 0.18s var(--ease-out), filter 0.2s var(--ease-inout);
+ }
+
+ .workout-fab:active {
+     transform: scale(0.95);
+     filter: brightness(0.98);
+ }
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 430px) {
+    #app {
+        padding: 0.6rem;
+    }
+
+    button, input[type="submit"] {
+        padding: 0.76rem;
+        font-size: 0.96rem;
+    }
+
+    .exercise-image {
+        max-height: 190px;
+    }
+
+    .timer-view .timer-display {
+        font-size: 3.6rem;
+    }
+
+    .fab {
+        bottom: calc(1.25rem + env(safe-area-inset-bottom));
+        right: calc(1.25rem + env(safe-area-inset-right));
+    }
+
+     .workout-fab {
+         bottom: calc(1.25rem + env(safe-area-inset-bottom));
+         left: calc(1.25rem + env(safe-area-inset-left));
+     }
+}
+
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.45rem;
+    }
+
+    .timer-view .timer-display {
+        font-size: 3.5rem;
+    }
+}
